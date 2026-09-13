@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Gramodyog - Financial Analysis</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial
+}
+
+body{
+    background:#f5f8f4;
+    color:#18352a
+}
+
+nav{
+    height:70px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 7%;
+    box-shadow:0 2px 10px #0001
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#176b45;
+    display:flex;
+    align-items:center;
+    gap:10px
+}
+
+.logo img{
+    width:45px;
+    height:45px;
+    object-fit:cover;
+    border-radius:50%
+}
+
+a{
+    color:#176b45;
+    text-decoration:none
+}
+
+main{
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px
+}
+
+.head{
+    text-align:center;
+    margin-bottom:30px
+}
+
+.head h1{
+    font-size:32px;
+    margin-bottom:8px
+}
+
+.head p{
+    color:#66756e
+}
+
+.steps{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:30px;
+    flex-wrap:wrap
+}
+
+.step{
+    padding:8px 18px;
+    border-radius:20px;
+    background:#e1ebe5;
+    color:#527064;
+    font-size:13px
+}
+
+.active{
+    background:#176b45;
+    color:white
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 30px #0001;
+    margin-bottom:20px
+}
+
+.details{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:25px
+}
+
+.detail{
+    background:#f0f6f2;
+    padding:18px;
+    border-radius:12px
+}
+
+.detail span{
+    display:block;
+    color:#6c7c74;
+    font-size:12px;
+    margin-bottom:5px
+}
+
+.detail strong{
+    font-size:20px;
+    color:#176b45
+}
+
+.structure{
+    background:#123b2d;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px
+}
+
+.structure small{
+    color:#b9d5c9
+}
+
+.project{
+    font-size:38px;
+    font-weight:bold;
+    margin:5px 0
+}
+
+.breakdown{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:20px
+}
+
+.box{
+    padding:18px;
+    background:#f0f6f2;
+    border-radius:12px
+}
+
+.box span{
+    display:block;
+    color:#687970;
+    font-size:12px
+}
+
+.box strong{
+    font-size:22px
+}
+
+.scheme{
+    border:1px solid #cbded4;
+    padding:20px;
+    border-radius:13px;
+    background:#f7fbf8;
+    margin-bottom:20px
+}
+
+.scheme h2{
+    color:#176b45;
+    font-size:20px;
+    margin-bottom:15px
+}
+
+.scheme-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px
+}
+
+.scheme-info div{
+    background:white;
+    padding:12px;
+    border-radius:8px
+}
+
+.scheme-info strong{
+    display:block;
+    font-size:17px
+}
+
+.scheme-info span{
+    color:#74827b;
+    font-size:10px
+}
+
+.emi{
+    padding-top:18px;
+    border-top:1px solid #dce6e0
+}
+
+.emi h3{
+    font-size:15px
+}
+
+.emi-value{
+    color:#176b45;
+    font-size:28px;
+    font-weight:bold;
+    margin-top:5px
+}
+
+/* REPAYMENT ANALYSIS */
+
+.repayment{
+    margin-top:25px;
+    padding-top:25px;
+    border-top:1px solid #dce6e0
+}
+
+.repayment h2{
+    color:#176b45;
+    font-size:22px;
+    margin-bottom:8px
+}
+
+.repayment-intro{
+    color:#66756e;
+    font-size:13px;
+    margin-bottom:20px
+}
+
+.input-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:20px
+}
+
+.input-box{
+    background:#f0f6f2;
+    padding:18px;
+    border-radius:12px
+}
+
+.input-box label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:8px;
+    color:#18352a
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbded4;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    background:white
+}
+
+.input-box input:focus{
+    border-color:#176b45
+}
+
+.calculate-btn{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:9px;
+    background:#123b2d;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:20px
+}
+
+.calculate-btn:hover{
+    background:#176b45
+}
+
+.analysis-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:20px
+}
+
+.analysis-box{
+    background:#f0f6f2;
+    padding:18px;
+    border-radius:12px
+}
+
+.analysis-box span{
+    display:block;
+    color:#687970;
+    font-size:12px;
+    margin-bottom:6px
+}
+
+.analysis-box strong{
+    font-size:21px;
+    color:#176b45
+}
+
+.coverage{
+    margin-top:5px;
+    padding:20px;
+    border-radius:12px;
+    background:#f7fbf8;
+    border:1px solid #cbded4
+}
+
+.coverage h3{
+    color:#176b45;
+    font-size:17px;
+    margin-bottom:8px
+}
+
+.coverage p{
+    font-size:13px;
+    color:#66756e;
+    line-height:1.5
+}
+
+.coverage-value{
+    font-size:27px;
+    font-weight:bold;
+    color:#176b45;
+    margin:5px 0 8px
+}
+
+.stress{
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    background:#fff8e7;
+    border:1px solid #f0e3bd
+}
+
+.stress h3{
+    color:#715c29;
+    font-size:17px;
+    margin-bottom:12px
+}
+
+.stress-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:10px
+}
+
+.stress-box{
+    background:white;
+    padding:12px;
+    border-radius:8px
+}
+
+.stress-box span{
+    display:block;
+    font-size:10px;
+    color:#74827b;
+    margin-bottom:5px
+}
+
+.stress-box strong{
+    font-size:17px;
+    color:#715c29
+}
+
+.risk{
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+    border:1px solid #cbded4;
+    background:#f7fbf8
+}
+
+.risk-title{
+    font-size:12px;
+    color:#687970;
+    margin-bottom:5px
+}
+
+.risk-level{
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:8px
+}
+
+.risk-message{
+    font-size:13px;
+    line-height:1.5;
+    color:#66756e
+}
+
+.risk-low{
+    color:#176b45
+}
+
+.risk-medium{
+    color:#a66a00
+}
+
+.risk-high{
+    color:#b33a3a
+}
+
+.decision-box{
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    background:#f0f6f2;
+    text-align:center
+}
+
+.decision-box h3{
+    font-size:18px;
+    color:#176b45;
+    margin-bottom:8px
+}
+
+.decision-box p{
+    color:#66756e;
+    font-size:13px;
+    line-height:1.5
+}
+
+.note{
+    padding:14px;
+    background:#fff8e7;
+    border:1px solid #f0e3bd;
+    color:#715c29;
+    border-radius:9px;
+    font-size:11px;
+    margin-top:20px;
+    margin-bottom:20px
+}
+
+.next{
+    width:100%;
+    padding:14px;
+    border-radius:9px;
+    background:#176b45;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    border:0;
+    cursor:pointer
+}
+
+.next:hover{
+    background:#123b2d
+}
+
+.hidden{
+    display:none
+}
+
+@media(max-width:650px){
+
+    .details,
+    .breakdown,
+    .input-grid,
+    .analysis-grid{
+        grid-template-columns:1fr
+    }
+
+    .scheme-info,
+    .stress-grid{
+        grid-template-columns:1fr
+    }
+
+    .card{
+        padding:22px
+    }
+
+    .steps{
+        gap:6px
+    }
+
+    .step{
+        padding:7px 12px;
+        font-size:11px
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<nav>
+
+    <div class="logo">
+
+        <img
+            src="C:\Users\Dell\prototype\gramodyog-logo.png.png"
+            alt="Gramudyog Logo" height="50"
+        >
+
+        Gramodyog
+
+    </div>
+
+
+    <a href="business.html">
+        ← Back
+    </a>
+
+</nav>
+
+
+<main>
+
+
+<div class="head">
+
+    <div class="steps">
+
+        <span class="step">
+            01 Account
+        </span>
+
+        <span class="step">
+            02 Profile
+        </span>
+
+        <span class="step">
+            03 Location
+        </span>
+
+        <span class="step">
+            04 Business
+        </span>
+
+        <span class="step active">
+            05 Finance
+        </span>
+
+       
+
+    </div>
+
+
+    <h1>
+        Smart Financial Structuring
+    </h1>
+
+    <p>
+        Your financing structure based on the details you provided.
+    </p>
+
+</div>
+
+
+
+<!-- RECEIVED BUSINESS DETAILS -->
+
+<div class="card">
+
+    <h2>
+        Your Business Details
+    </h2>
+
+    <br>
+
+
+    <div class="details">
+
+        <div class="detail">
+
+            <span>
+                Business Category
+            </span>
+
+            <strong id="businessCategory">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="detail">
+
+            <span>
+                Available Margin Capital
+            </span>
+
+            <strong id="marginCapital">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FINANCIAL STRUCTURE -->
+
+    <div class="structure">
+
+        <small>
+            ESTIMATED PROJECT COST
+        </small>
+
+        <div class="project" id="projectCost">
+            —
+        </div>
+
+        <p>
+            Based on approximately 10% margin contribution.
+        </p>
+
+    </div>
+
+
+
+    <div class="breakdown">
+
+        <div class="box">
+
+            <span>
+                Your Contribution
+            </span>
+
+            <strong id="marginResult">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="box">
+
+            <span>
+                Estimated Loan
+            </span>
+
+            <strong id="loanResult">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SCHEME -->
+
+    <div class="scheme">
+
+        <h2 id="schemeName">
+            —
+        </h2>
+
+
+        <div class="scheme-info">
+
+            <div>
+
+                <strong id="interest">
+                    —
+                </strong>
+
+                <span>
+                    Interest p.a.
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong id="tenure">
+                    —
+                </strong>
+
+                <span>
+                    Repayment Period
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong id="moratorium">
+                    —
+                </strong>
+
+                <span>
+                    Moratorium
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EMI -->
+
+    <div class="emi">
+
+        <h3>
+            Estimated Monthly Repayment
+        </h3>
+
+        <div class="emi-value" id="emi">
+            —
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================== -->
+    <!-- REPAYMENT ANALYSIS MERGED INTO PAGE -->
+    <!-- ===================================== -->
+
+    <div class="repayment">
+
+        <h2>
+            Can Your Business Repay the Loan?
+        </h2>
+
+        <p class="repayment-intro">
+            Estimate whether your expected monthly business surplus
+            can comfortably cover the loan repayment.
+        </p>
+
+
+
+        <!-- INPUTS -->
+
+        <div class="input-grid">
+
+            <div class="input-box">
+
+                <label for="monthlyRevenue">
+                    Expected Monthly Revenue (₹)
+                </label>
+
+                <input
+                    type="number"
+                    id="monthlyRevenue"
+                    placeholder="Example: 50000"
+                    min="0"
+                    oninput="calculateRepayment()"
+                >
+
+            </div>
+
+
+            <div class="input-box">
+
+                <label for="monthlyExpenses">
+                    Monthly Operating Expenses (₹)
+                </label>
+
+                <input
+                    type="number"
+                    id="monthlyExpenses"
+                    placeholder="Example: 32000"
+                    min="0"
+                    oninput="calculateRepayment()"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <button
+            class="calculate-btn"
+            onclick="calculateRepayment()"
+        >
+            Calculate Repayment Capacity
+        </button>
+
+
+
+        <!-- ANALYSIS RESULT -->
+
+        <div id="repaymentResults" class="hidden">
+
+
+            <div class="analysis-grid">
+
+                <div class="analysis-box">
+
+                    <span>
+                        Operating Surplus
+                    </span>
+
+                    <strong id="operatingSurplus">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="analysis-box">
+
+                    <span>
+                        Loan EMI
+                    </span>
+
+                    <strong id="repaymentEmi">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="analysis-box">
+
+                    <span>
+                        Surplus After EMI
+                    </span>
+
+                    <strong id="surplusAfterEmi">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="analysis-box">
+
+                    <span>
+                        Monthly Revenue
+                    </span>
+
+                    <strong id="analysisRevenue">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- REPAYMENT COVERAGE -->
+
+            <div class="coverage">
+
+                <h3>
+                    Repayment Coverage
+                </h3>
+
+                <div
+                    class="coverage-value"
+                    id="coverageRatio"
+                >
+                    —
+                </div>
+
+                <p id="coverageMessage">
+                    —
+                </p>
+
+            </div>
+
+
+
+            <!-- STRESS TEST -->
+
+            <div class="stress">
+
+                <h3>
+                    20% Revenue Stress Test
+                </h3>
+
+                <p style="font-size:12px;color:#715c29;margin-bottom:15px;">
+                    What happens if monthly revenue falls by 20%?
+                </p>
+
+
+                <div class="stress-grid">
+
+                    <div class="stress-box">
+
+                        <span>
+                            Stress Revenue
+                        </span>
+
+                        <strong id="stressRevenue">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stress-box">
+
+                        <span>
+                            Stress Surplus
+                        </span>
+
+                        <strong id="stressSurplus">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stress-box">
+
+                        <span>
+                            After EMI
+                        </span>
+
+                        <strong id="stressAfterEmi">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RISK -->
+
+            <div class="risk">
+
+                <div class="risk-title">
+                    REPAYMENT RISK LEVEL
+                </div>
+
+                <div
+                    class="risk-level"
+                    id="riskLevel"
+                >
+                    —
+                </div>
+
+                <p
+                    class="risk-message"
+                    id="riskMessage"
+                >
+                    —
+                </p>
+
+            </div>
+
+
+
+            <!-- DECISION -->
+
+            <div class="decision-box">
+
+                <h3 id="repaymentDecision">
+                    —
+                </h3>
+
+                <p id="decisionMessage">
+                    —
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- IMPORTANT NOTE -->
+
+        <div class="note">
+
+            <strong>Important:</strong>
+
+            These are advisory estimates. Actual eligibility,
+            loan sanction, interest rate and repayment terms are
+            subject to applicable government guidelines and the
+            concerned financing agency.
+
+        </div>
+
+
+
+        <button
+            class="next"
+            onclick="goToDecision()"
+        >
+            Continue to Market Analysis →
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =====================================
+   FORMAT RUPEE
+===================================== */
+
+function formatRupee(number){
+
+    if(isNaN(number)){
+        return "₹0";
+    }
+
+    return "₹" +
+        Math.round(number).toLocaleString("en-IN");
+
+}
+
+
+
+/* =====================================
+   EMI CALCULATION
+===================================== */
+
+function calculateEMI(principal,rate,years){
+
+    if(!principal || !rate || !years){
+        return 0;
+    }
+
+    const monthlyRate =
+        rate / 12 / 100;
+
+    const months =
+        years * 12;
+
+    return principal *
+        monthlyRate *
+        Math.pow(1 + monthlyRate,months) /
+        (Math.pow(1 + monthlyRate,months) - 1);
+
+}
+
+
+
+/* =====================================
+   GLOBAL VALUES
+===================================== */
+
+let loanAmount = 0;
+let monthlyEMI = 0;
+
+
+
+/* =====================================
+   LOAD FINANCIAL DATA
+===================================== */
+
+window.onload = function(){
+
+
+    const margin =
+        Number(
+            localStorage.getItem("marginCapital")
+        );
+
+
+    const business =
+        localStorage.getItem("businessCategory");
+
+
+
+    /* Check whether data exists */
+
+    if(!margin || !business){
+
+        alert(
+            "Business details not found. Please complete Business Details first."
+        );
+
+        window.location.href =
+            "business.html";
+
+        return;
+
+    }
+
+
+
+    /* Display received data */
+
+    document.getElementById(
+        "businessCategory"
+    ).innerText =
+        business;
+
+
+
+    document.getElementById(
+        "marginCapital"
+    ).innerText =
+        formatRupee(margin);
+
+
+
+    /* =====================================
+       FINANCIAL CALCULATION
+    ===================================== */
+
+    const projectCost =
+        margin * 10;
+
+
+    loanAmount =
+        projectCost * 0.90;
+
+
+
+    let scheme;
+    let interest;
+    let years;
+    let moratorium;
+
+
+
+    /* =====================================
+       SCHEME ROUTER
+    ===================================== */
+
+    if(projectCost <= 140000){
+
+        scheme =
+            "Micro Finance Scheme";
+
+        interest =
+            6.5;
+
+        years =
+            3;
+
+        moratorium =
+            "3 months";
+
+    }
+
+
+    else if(projectCost <= 5000000){
+
+        scheme =
+            "Term Loan Scheme";
+
+        interest =
+            8;
+
+        years =
+            7;
+
+        moratorium =
+            "6 months";
+
+    }
+
+
+    else{
+
+        scheme =
+            "Above Current Scheme Limit";
+
+        interest =
+            0;
+
+        years =
+            0;
+
+        moratorium =
+            "—";
+
+    }
+
+
+
+    /* =====================================
+       DISPLAY CALCULATIONS
+    ===================================== */
+
+    document.getElementById(
+        "projectCost"
+    ).innerText =
+        formatRupee(projectCost);
+
+
+
+    document.getElementById(
+        "marginResult"
+    ).innerText =
+        formatRupee(margin);
+
+
+
+    document.getElementById(
+        "loanResult"
+    ).innerText =
+        formatRupee(loanAmount);
+
+
+
+    document.getElementById(
+        "schemeName"
+    ).innerText =
+        scheme;
+
+
+
+    document.getElementById(
+        "interest"
+    ).innerText =
+        interest ? interest + "%" : "—";
+
+
+
+    document.getElementById(
+        "tenure"
+    ).innerText =
+        years ? years + " years" : "—";
+
+
+
+    document.getElementById(
+        "moratorium"
+    ).innerText =
+        moratorium;
+
+
+
+    /* =====================================
+       EMI
+    ===================================== */
+
+    if(interest && years){
+
+        monthlyEMI =
+            calculateEMI(
+                loanAmount,
+                interest,
+                years
+            );
+
+
+        document.getElementById(
+            "emi"
+        ).innerText =
+            formatRupee(monthlyEMI);
+
+
+        document.getElementById(
+            "repaymentEmi"
+        ).innerText =
+            formatRupee(monthlyEMI);
+
+    }
+
+
+    else{
+
+        monthlyEMI = 0;
+
+        document.getElementById(
+            "emi"
+        ).innerText =
+            "Not available";
+
+
+        document.getElementById(
+            "repaymentEmi"
+        ).innerText =
+            "Not available";
+
+    }
+
+
+
+    /* =====================================
+       SAVE FINANCE RESULTS
+    ===================================== */
+
+    localStorage.setItem(
+        "projectCost",
+        projectCost
+    );
+
+
+    localStorage.setItem(
+        "loanAmount",
+        loanAmount
+    );
+
+
+    localStorage.setItem(
+        "scheme",
+        scheme
+    );
+
+
+    localStorage.setItem(
+        "interest",
+        interest
+    );
+
+
+    localStorage.setItem(
+        "tenure",
+        years
+    );
+
+
+    localStorage.setItem(
+        "emi",
+        monthlyEMI
+    );
+
+
+
+    /* =====================================
+       RESTORE PREVIOUS REPAYMENT INPUTS
+    ===================================== */
+
+    const savedRevenue =
+        localStorage.getItem("monthlyRevenue");
+
+    const savedExpenses =
+        localStorage.getItem("monthlyExpenses");
+
+
+    if(savedRevenue){
+
+        document.getElementById(
+            "monthlyRevenue"
+        ).value =
+            savedRevenue;
+
+    }
+
+
+    if(savedExpenses){
+
+        document.getElementById(
+            "monthlyExpenses"
+        ).value =
+            savedExpenses;
+
+    }
+
+
+    if(savedRevenue && savedExpenses){
+
+        calculateRepayment();
+
+    }
+
+};
+
+
+
+/* =====================================
+   REPAYMENT ANALYSIS
+===================================== */
+
+function calculateRepayment(){
+
+
+    const revenue =
+        Number(
+            document.getElementById(
+                "monthlyRevenue"
+            ).value
+        );
+
+
+    const expenses =
+        Number(
+            document.getElementById(
+                "monthlyExpenses"
+            ).value
+        );
+
+
+
+    /* Validate */
+
+    if(
+        revenue <= 0 ||
+        expenses < 0
+    ){
+
+        alert(
+            "Please enter valid monthly revenue and operating expenses."
+        );
+
+        return;
+
+    }
+
+
+
+    /* =====================================
+       OPERATING SURPLUS
+    ===================================== */
+
+    const operatingSurplus =
+        revenue - expenses;
+
+
+
+    /* =====================================
+       SURPLUS AFTER EMI
+    ===================================== */
+
+    const surplusAfterEmi =
+        operatingSurplus - monthlyEMI;
+
+
+
+    /* =====================================
+       REPAYMENT COVERAGE
+    ===================================== */
+
+    let coverage = 0;
+
+
+    if(monthlyEMI > 0){
+
+        coverage =
+            operatingSurplus / monthlyEMI;
+
+    }
+
+
+
+    /* =====================================
+       20% REVENUE STRESS TEST
+    ===================================== */
+
+    const stressRevenue =
+        revenue * 0.80;
+
+
+    const stressSurplus =
+        stressRevenue - expenses;
+
+
+    const stressAfterEmi =
+        stressSurplus - monthlyEMI;
+
+
+
+    /* =====================================
+       DISPLAY RESULTS
+    ===================================== */
+
+    document.getElementById(
+        "repaymentResults"
+    ).classList.remove("hidden");
+
+
+
+    document.getElementById(
+        "operatingSurplus"
+    ).innerText =
+        formatRupee(operatingSurplus);
+
+
+
+    document.getElementById(
+        "repaymentEmi"
+    ).innerText =
+        monthlyEMI > 0
+            ? formatRupee(monthlyEMI)
+            : "Not available";
+
+
+
+    document.getElementById(
+        "surplusAfterEmi"
+    ).innerText =
+        formatRupee(surplusAfterEmi);
+
+
+
+    document.getElementById(
+        "analysisRevenue"
+    ).innerText =
+        formatRupee(revenue);
+
+
+
+    /* =====================================
+       COVERAGE DISPLAY
+    ===================================== */
+
+    if(monthlyEMI > 0){
+
+        document.getElementById(
+            "coverageRatio"
+        ).innerText =
+            coverage.toFixed(2) + "×";
+
+
+        let coverageMessage = "";
+
+
+        if(coverage >= 1.5){
+
+            coverageMessage =
+                "Your operating surplus is comfortably above the EMI. The business shows a relatively strong repayment capacity.";
+
+        }
+
+        else if(coverage >= 1.0){
+
+            coverageMessage =
+                "Your operating surplus can cover the EMI, but the repayment margin is limited.";
+
+        }
+
+        else{
+
+            coverageMessage =
+                "Your current operating surplus is not sufficient to cover the estimated EMI.";
+
+        }
+
+
+        document.getElementById(
+            "coverageMessage"
+        ).innerText =
+            coverageMessage;
+
+    }
+
+
+    else{
+
+        document.getElementById(
+            "coverageRatio"
+        ).innerText =
+            "Not available";
+
+
+        document.getElementById(
+            "coverageMessage"
+        ).innerText =
+            "Repayment coverage cannot be calculated because a valid EMI is not available.";
+
+    }
+
+
+
+    /* =====================================
+       STRESS TEST DISPLAY
+    ===================================== */
+
+    document.getElementById(
+        "stressRevenue"
+    ).innerText =
+        formatRupee(stressRevenue);
+
+
+
+    document.getElementById(
+        "stressSurplus"
+    ).innerText =
+        formatRupee(stressSurplus);
+
+
+
+    document.getElementById(
+        "stressAfterEmi"
+    ).innerText =
+        formatRupee(stressAfterEmi);
+
+
+
+    /* =====================================
+       RISK ASSESSMENT
+    ===================================== */
+
+    const riskLevel =
+        document.getElementById(
+            "riskLevel"
+        );
+
+    const riskMessage =
+        document.getElementById(
+            "riskMessage"
+        );
+
+
+
+    riskLevel.className =
+        "risk-level";
+
+
+
+    let risk = "";
+    let message = "";
+
+
+
+    if(
+        monthlyEMI <= 0 ||
+        operatingSurplus <= 0
+    ){
+
+        risk =
+            "HIGH RISK";
+
+        message =
+            "The business does not currently generate enough operating surplus to support the estimated loan repayment.";
+
+        riskLevel.classList.add(
+            "risk-high"
+        );
+
+    }
+
+
+    else if(
+        stressAfterEmi < 0 ||
+        coverage < 1.25
+    ){
+
+        risk =
+            "MEDIUM RISK";
+
+        message =
+            "The business can potentially repay the EMI under normal conditions, but a fall in revenue may create repayment pressure.";
+
+        riskLevel.classList.add(
+            "risk-medium"
+        );
+
+    }
+
+
+    else{
+
+        risk =
+            "LOW RISK";
+
+        message =
+            "The business shows a healthy repayment capacity under normal conditions and remains positive under the 20% revenue stress test.";
+
+        riskLevel.classList.add(
+            "risk-low"
+        );
+
+    }
+
+
+
+    riskLevel.innerText =
+        risk;
+
+
+    riskMessage.innerText =
+        message;
+
+
+
+    /* =====================================
+       FINAL DECISION
+    ===================================== */
+
+    const decision =
+        document.getElementById(
+            "repaymentDecision"
+        );
+
+
+    const decisionMessage =
+        document.getElementById(
+            "decisionMessage"
+        );
+
+
+
+    if(
+        monthlyEMI > 0 &&
+        stressAfterEmi >= 0 &&
+        coverage >= 1.5
+    ){
+
+        decision.innerText =
+            "✓ GO — Repayment Looks Manageable";
+
+
+        decisionMessage.innerText =
+            "The projected business surplus appears sufficient to support the estimated EMI, including under the 20% revenue stress scenario.";
+
+    }
+
+
+    else if(
+        monthlyEMI > 0 &&
+        operatingSurplus >= monthlyEMI
+    ){
+
+        decision.innerText =
+            "⚠ MODIFY — Repayment Needs a Safety Margin";
+
+
+        decisionMessage.innerText =
+            "The business may be able to repay the loan under normal conditions, but improving revenue, reducing expenses or lowering the loan amount would make repayment safer.";
+
+    }
+
+
+    else{
+
+        decision.innerText =
+            "✕ RECONSIDER — Repayment Capacity Is Weak";
+
+
+        decisionMessage.innerText =
+            "The projected operating surplus is not sufficient to comfortably support the estimated EMI. Consider reducing the loan amount or strengthening the business plan.";
+
+    }
+
+
+
+    /* =====================================
+       SAVE REPAYMENT DATA
+    ===================================== */
+
+    localStorage.setItem(
+        "monthlyRevenue",
+        revenue
+    );
+
+
+    localStorage.setItem(
+        "monthlyExpenses",
+        expenses
+    );
+
+
+    localStorage.setItem(
+        "operatingSurplus",
+        operatingSurplus
+    );
+
+
+    localStorage.setItem(
+        "surplusAfterEmi",
+        surplusAfterEmi
+    );
+
+
+    localStorage.setItem(
+        "repaymentCoverage",
+        coverage
+    );
+
+
+    localStorage.setItem(
+        "stressRevenue",
+        stressRevenue
+    );
+
+
+    localStorage.setItem(
+        "stressSurplus",
+        stressSurplus
+    );
+
+
+    localStorage.setItem(
+        "stressAfterEmi",
+        stressAfterEmi
+    );
+
+
+    localStorage.setItem(
+        "repaymentRisk",
+        risk
+    );
+
+
+    localStorage.setItem(
+        "repaymentDecision",
+        decision.innerText
+    );
+
+}
+
+
+
+/* =====================================
+   GO TO BUSINESS DECISION
+===================================== */
+
+function goToDecision(){
+
+    const revenue =
+        Number(
+            document.getElementById(
+                "monthlyRevenue"
+            ).value
+        );
+
+
+    const expenses =
+        Number(
+            document.getElementById(
+                "monthlyExpenses"
+            ).value
+        );
+
+
+
+    /* Require repayment inputs */
+
+    if(
+        revenue <= 0 ||
+        expenses < 0
+    ){
+
+        alert(
+            "Please enter your expected monthly revenue and operating expenses before continuing."
+        );
+
+        document.getElementById(
+            "monthlyRevenue"
+        ).focus();
+
+        return;
+
+    }
+
+
+
+    /* Calculate before moving */
+
+    calculateRepayment();
+
+
+
+    /* Move to Decision page */
+
+    window.location.href =
+        "market.html";
+
+}
+
+</script>
+
+
+</body>
+</html>

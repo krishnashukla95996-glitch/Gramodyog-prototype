@@ -1,0 +1,97 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gramodyog - Market Analysis</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}body{background:#f5f8f4;color:#18352a}a{text-decoration:none;color:inherit}
+nav{height:70px;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 7%;box-shadow:0 2px 10px #0001}.logo{font-size:25px;font-weight:bold;color:#176b45}nav span{color:#66756e;font-size:13px}
+main{max-width:1100px;margin:35px auto;padding:20px}.head{text-align:center;margin-bottom:30px}.head h1{font-size:32px;margin-bottom:8px}.head p{color:#66756e}
+.status{display:inline-block;background:#e1f2e8;color:#176b45;padding:7px 15px;border-radius:20px;font-size:12px;font-weight:bold;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #dce7e0;border-radius:16px;padding:23px;box-shadow:0 7px 25px #0001}.card h3{font-size:16px;margin:10px 0}.icon{font-size:25px}.score{font-size:30px;font-weight:bold;color:#176b45}.muted{font-size:12px;color:#718079}.bar{height:7px;background:#e5ece8;border-radius:10px;margin:12px 0;overflow:hidden}.bar i{display:block;height:100%;background:#176b45}.wide{grid-column:span 2}.wide h2{font-size:20px;margin-bottom:12px}.recommend{background:#123b2d;color:#fff}.recommend p{color:#c7d8d1;font-size:13px;line-height:1.7}.tag{display:inline-block;background:#e5f5eb;color:#176b45;padding:5px 9px;border-radius:15px;font-size:10px;font-weight:bold;margin:4px 3px 0 0}.recommend .tag{background:#285443;color:#bfe8d0}
+.map{height:170px;border-radius:12px;background:linear-gradient(#d9eee2,#eef7f2);position:relative;overflow:hidden}.map:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#9fc9b2 1px,transparent 1px),linear-gradient(90deg,#9fc9b2 1px,transparent 1px);background-size:35px 35px;opacity:.55}.pin{position:absolute;left:50%;top:50%;width:18px;height:18px;border-radius:50%;background:#176b45;box-shadow:0 0 0 8px #b9dfcb;transform:translate(-50%,-50%)}.map label{position:absolute;left:50%;top:63%;transform:translateX(-50%);background:#fff;padding:5px 9px;border-radius:6px;font-size:10px;font-weight:bold}
+.action{margin-top:25px;text-align:center}.btn{display:inline-block;background:#176b45;color:#fff;padding:13px 25px;border-radius:9px;font-weight:bold}.back{display:block;margin-top:12px;color:#176b45;font-size:12px}
+@media(max-width:750px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}main{margin:20px auto}.head h1{font-size:27px}}
+</style>
+</head>
+<body>
+
+<nav><div class="logo"><img
+            src="C:\Users\Dell\prototype\gramodyog-logo.png.png"
+            alt="Gramodyog Logo" height="50"
+        > Gramodyog</div><a href="finance.html" class="back">← Back to Finance Analysis</a></nav>
+
+<main>
+<div class="head">
+<div class="status">● ANALYSIS COMPLETE</div>
+<h1>Your Local Market Analysis</h1>
+<p>AI-powered insights based on your selected location and business idea.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Market Opportunity</h3>
+<div class="score">78/100</div>
+<div class="bar"><i style="width:78%"></i></div>
+<p class="muted">Strong potential in the selected area.</p>
+</div>
+
+<div class="card">
+<div class="icon">👥</div>
+<h3>Customer Demand</h3>
+<div class="score">82/100</div>
+<div class="bar"><i style="width:82%"></i></div>
+<p class="muted">Good estimated local demand.</p>
+</div>
+
+<div class="card">
+<div class="icon">🏪</div>
+<h3>Competition</h3>
+<div class="score">Low</div>
+<div class="bar"><i style="width:35%"></i></div>
+<p class="muted">Limited direct competition detected.</p>
+</div>
+
+<div class="card wide">
+<h2>📍 Hyper-Local Market View</h2>
+<div class="map"><div class="pin"></div><label>Your Selected Location</label></div>
+</div>
+
+<div class="card">
+<div class="icon">⚠️</div>
+<h3>Market Risk</h3>
+<div class="score">Low</div>
+<p class="muted">Demand and competition indicators are favorable.</p>
+<br>
+<span class="tag">LOW RISK</span>
+</div>
+
+<div class="card">
+<div class="icon">💰</div>
+<h3>Financial Fit</h3>
+<div class="score">74/100</div>
+<div class="bar"><i style="width:74%"></i></div>
+<p class="muted">Project cost appears reasonably aligned with available capital.</p>
+</div>
+
+<div class="card wide recommend">
+<h2>🤖 AI Business Recommendation</h2>
+<p>Based on market opportunity, customer demand, competition and financial fit, this business shows promising potential in the selected location. Consider validating local customer demand and existing competitors before making a final investment decision.</p>
+<br>
+<span class="tag">GOOD OPPORTUNITY</span>
+<span class="tag">LOW COMPETITION</span>
+<span class="tag">VALIDATE DEMAND</span>
+</div>
+
+</div>
+
+<div class="action">
+<a href="risk.html" class="btn">Continue to Risk Analysis →</a>
+
+</div>
+</main>
+</body>
+</html>
+```

@@ -1,0 +1,504 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gramodyog - Business Details</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial
+}
+
+body{
+    background:#f5f8f4;
+    color:#18352a
+}
+
+nav{
+    height:70px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 7%;
+    box-shadow:0 2px 10px #0001
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#176b45;
+    display:flex;
+    align-items:center;
+    gap:8px
+}
+
+.logo img{
+    height:50px
+}
+
+a{
+    color:#176b45;
+    text-decoration:none
+}
+
+main{
+    max-width:850px;
+    margin:40px auto;
+    padding:20px
+}
+
+.head{
+    text-align:center;
+    margin-bottom:25px
+}
+
+.head h1{
+    font-size:32px;
+    margin-bottom:8px
+}
+
+.head p{
+    color:#66756e
+}
+
+.steps{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:30px;
+    flex-wrap:wrap
+}
+
+.step{
+    padding:8px 18px;
+    border-radius:20px;
+    background:#e1ebe5;
+    color:#527064;
+    font-size:13px
+}
+
+.active{
+    background:#176b45;
+    color:white
+}
+
+.card{
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 8px 30px #0001
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px
+}
+
+.full{
+    grid-column:1/-1
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px
+}
+
+label{
+    font-weight:bold;
+    font-size:14px
+}
+
+input,
+select,
+textarea{
+    padding:13px;
+    border:1px solid #ccd8d1;
+    border-radius:9px;
+    font-size:14px
+}
+
+textarea{
+    resize:none;
+    height:100px
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:25px;
+    border:0;
+    border-radius:9px;
+    background:#176b45;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer
+}
+
+button:hover{
+    background:#105b3a
+}
+
+.hint{
+    font-size:12px;
+    color:#74827b;
+    margin-top:5px
+}
+
+@media(max-width:650px){
+
+    .grid{
+        grid-template-columns:1fr
+    }
+
+    .full{
+        grid-column:auto
+    }
+
+    .card{
+        padding:25px
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        <img
+            src="C:\Users\Dell\prototype\gramodyog-logo.png.png"
+            alt="Gramodyog Logo"
+        >
+        Gramodyog
+    </div>
+
+    <a href="location.html">← Back</a>
+
+</nav>
+
+
+<main>
+
+<div class="head">
+
+    <h1>
+        Tell Us About Your Business
+    </h1>
+
+    <p>
+        Enter your business details for personalized AI analysis.
+    </p>
+
+</div>
+
+
+<div class="steps">
+
+    <span class="step">
+        01 Account
+    </span>
+
+    <span class="step">
+        02 Profile
+    </span>
+
+    <span class="step active">
+        03 Business
+    </span>
+
+    <span class="step">
+        04 Analysis
+    </span>
+
+</div>
+
+
+<div class="card">
+
+<form onsubmit="saveBusiness(event)">
+
+<div class="grid">
+
+
+<!-- Business Category -->
+
+<div class="field">
+
+    <label>
+        Business Category
+    </label>
+
+    <select id="businessCategory" required>
+
+        <option value="">
+            Select Business
+        </option>
+
+        <option value="Dairy">
+            Dairy
+        </option>
+
+        <option value="Retail Store">
+            Retail Store
+        </option>
+
+        <option value="Textiles">
+            Textiles
+        </option>
+
+        <option value="Food Processing">
+            Food Processing
+        </option>
+
+        <option value="Poultry">
+            Poultry
+        </option>
+
+        <option value="Agriculture">
+            Agriculture
+        </option>
+
+        <option value="Handicrafts">
+            Handicrafts
+        </option>
+
+        <option value="Manufacturing">
+            Manufacturing
+        </option>
+
+        <option value="Services">
+            Services
+        </option>
+
+        <option value="Other">
+            Other
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- Business Type -->
+
+<div class="field">
+
+    <label>
+        Business Type
+    </label>
+
+    <select id="businessType" required>
+
+        <option value="">
+            Select Type
+        </option>
+
+        <option value="New Business">
+            New Business
+        </option>
+
+        <option value="Existing Business">
+            Existing Business
+        </option>
+
+        <option value="Business Expansion">
+            Business Expansion
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- Margin Capital -->
+
+<div class="field">
+
+    <label>
+        Available Amount / Margin Capital (₹)
+    </label>
+
+    <input
+        type="number"
+        id="marginCapital"
+        placeholder="e.g. 100000"
+        min="1"
+        required
+    >
+
+    <span class="hint">
+        Amount you can contribute towards the project.
+    </span>
+
+</div>
+
+
+<!-- Experience -->
+
+<div class="field">
+
+    <label>
+        Business Experience
+    </label>
+
+    <select id="experience" required>
+
+        <option value="">
+            Select Experience
+        </option>
+
+        <option value="No Experience">
+            No Experience
+        </option>
+
+        <option value="Less than 1 Year">
+            Less than 1 Year
+        </option>
+
+        <option value="1–3 Years">
+            1–3 Years
+        </option>
+
+        <option value="3–5 Years">
+            3–5 Years
+        </option>
+
+        <option value="More than 5 Years">
+            More than 5 Years
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- Employees -->
+
+<div class="field">
+
+    <label>
+        Expected Number of Employees
+    </label>
+
+    <input
+        type="number"
+        id="employees"
+        placeholder="e.g. 5"
+        min="1"
+    >
+
+</div>
+
+
+<!-- Business Idea -->
+
+<div class="field full">
+
+    <label>
+        Describe Your Business Idea
+    </label>
+
+    <textarea
+        id="businessIdea"
+        required
+        placeholder="Briefly describe what you want to start..."
+    ></textarea>
+
+    <span class="hint">
+        Example: Dairy farm with 10 cattle supplying milk to nearby villages.
+    </span>
+
+</div>
+
+</div>
+
+
+<button type="submit">
+    🔍 Continue to Financial Analysis →
+</button>
+
+</form>
+
+</div>
+
+</main>
+
+
+<script>
+
+function saveBusiness(e){
+
+    e.preventDefault();
+
+
+    const businessCategory =
+        document.getElementById("businessCategory").value;
+
+    const businessType =
+        document.getElementById("businessType").value;
+
+    const marginCapital =
+        document.getElementById("marginCapital").value;
+
+    const experience =
+        document.getElementById("experience").value;
+
+    const employees =
+        document.getElementById("employees").value;
+
+    const businessIdea =
+        document.getElementById("businessIdea").value;
+
+
+    /* Save business details */
+
+    localStorage.setItem(
+        "businessCategory",
+        businessCategory
+    );
+
+    localStorage.setItem(
+        "businessType",
+        businessType
+    );
+
+    localStorage.setItem(
+        "marginCapital",
+        marginCapital
+    );
+
+    localStorage.setItem(
+        "experience",
+        experience
+    );
+
+    localStorage.setItem(
+        "employees",
+        employees
+    );
+
+    localStorage.setItem(
+        "businessIdea",
+        businessIdea
+    );
+
+
+    /* Move to Finance Page */
+
+    window.location.href = "finance.html";
+
+}
+
+</script>
+
+</body>
+</html>
+```

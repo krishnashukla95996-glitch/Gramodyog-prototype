@@ -1,0 +1,338 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>GramUdyog - Personal Details</title>
+
+<style>
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif
+}
+
+body{
+background:#f5f8f4;
+color:#18352a;
+line-height:1.5
+}
+
+nav{
+height:70px;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 7%;
+box-shadow:0 2px 10px #0001
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+color:#176b45
+}
+
+nav a{
+color:#176b45;
+text-decoration:none
+}
+
+main{
+max-width:750px;
+margin:45px auto;
+padding:20px
+}
+
+.head{
+text-align:center;
+margin-bottom:28px
+}
+
+.head h1{
+font-size:34px;
+margin-bottom:8px
+}
+
+.head p{
+color:#66756e
+}
+
+.steps{
+display:flex;
+justify-content:center;
+gap:8px;
+flex-wrap:wrap;
+margin-bottom:25px
+}
+
+.step{
+padding:7px 15px;
+border-radius:20px;
+background:#e1ebe5;
+color:#527064;
+font-size:13px
+}
+
+.active{
+background:#176b45;
+color:white
+}
+
+.card{
+background:white;
+padding:35px 40px;
+border-radius:18px;
+box-shadow:0 8px 30px #0001
+}
+
+.profile-icon{
+width:65px;
+height:65px;
+margin:0 auto 15px;
+border-radius:50%;
+background:#e1ebe5;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px
+}
+
+.card h2{
+text-align:center;
+font-size:24px;
+margin-bottom:5px
+}
+
+.subtitle{
+text-align:center;
+color:#74827b;
+font-size:14px;
+margin-bottom:28px
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px
+}
+
+.full{
+grid-column:1/-1
+}
+
+.field{
+display:flex;
+flex-direction:column;
+gap:7px
+}
+
+label{
+font-weight:bold;
+font-size:14px
+}
+
+input,select,textarea{
+width:100%;
+padding:13px;
+border:1px solid #ccd8d1;
+border-radius:9px;
+font-size:14px;
+outline:none
+}
+
+input:focus,select:focus,textarea:focus{
+border-color:#176b45;
+box-shadow:0 0 0 2px #176b4520
+}
+
+textarea{
+height:100px;
+resize:none
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:25px;
+border:0;
+border-radius:9px;
+background:#176b45;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer
+}
+
+button:hover{
+background:#125637
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#74827b;
+font-size:13px
+}
+
+@media(max-width:650px){
+main{
+margin:25px auto
+}
+
+.card{
+padding:25px 20px
+}
+
+.grid{
+grid-template-columns:1fr
+}
+
+.full{
+grid-column:auto
+}
+
+.head h1{
+font-size:28px
+}
+
+nav{
+padding:0 5%
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo"> <img
+            src="C:\Users\Dell\prototype\gramodyog-logo.png.png"
+            alt="Gramudyog Logo" height="50"
+        > Gramodyog</div>
+<a href="login.html">← Back</a>
+</nav>
+
+<main>
+
+<div class="head">
+<h1>Personal Details</h1>
+<p>Tell us about yourself to personalize your business analysis.</p>
+</div>
+
+<div class="steps">
+<span class="step active">01 Account</span>
+
+<span class="step active">03 Personal</span>
+<span class="step">04 Business</span>
+<span class="step">05 Analysis</span>
+</div>
+
+<div class="card">
+
+<div class="profile-icon">👤</div>
+
+<h2>About You</h2>
+<p class="subtitle">
+Your information helps us understand your business profile.
+</p>
+
+<form onsubmit="savePersonal(event)">
+
+<div class="grid">
+
+<div class="field">
+<label>Full Name</label>
+<input name="name" placeholder="Enter your full name" required>
+</div>
+
+<div class="field">
+<label>Age</label>
+<input name="age" type="number" min="18" max="100"
+placeholder="Enter your age" required>
+</div>
+
+<div class="field">
+<label>Gender</label>
+<select name="gender" required>
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Education</label>
+<select name="education" required>
+<option value="">Select Education</option>
+<option>Below 10th</option>
+<option>10th</option>
+<option>12th</option>
+<option>Diploma</option>
+<option>Graduate</option>
+<option>Post Graduate</option>
+</select>
+</div>
+
+<div class="field">
+<label>Occupation</label>
+<select name="occupation" required>
+<option value="">Select Occupation</option>
+<option>Student</option>
+<option>Farmer</option>
+<option>Self Employed</option>
+<option>Private Job</option>
+<option>Government Job</option>
+<option>Other</option>
+</select>
+</div>
+
+
+
+<div class="field full">
+<label>Business Goal</label>
+<textarea name="goal"
+placeholder="What do you want to achieve through your business?"></textarea>
+</div>
+
+</div>
+
+<button type="submit">
+Continue to Location Details →
+</button>
+
+</form>
+
+</div>
+</main>
+
+<footer>
+Gramodyog • Rural Business Advisor • SIH 2026 Prototype
+</footer>
+
+<script>
+function savePersonal(e){
+e.preventDefault();
+
+let d=JSON.parse(
+localStorage.getItem("gramodyogData")||"{}"
+);
+
+new FormData(e.target).forEach(
+(v,k)=>d[k]=v
+);
+
+localStorage.setItem(
+"gramodyogData",
+JSON.stringify(d)
+);
+
+location.href="location.html";
+}
+</script>
+
+</body>
+</html>
+```

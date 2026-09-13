@@ -1,0 +1,108 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>GramUdyog - Business Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}body{background:#f5f8f4;color:#18352a}a{text-decoration:none;color:inherit}
+nav{height:70px;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 7%;box-shadow:0 2px 10px #0001}.logo{font-size:25px;font-weight:bold;color:#176b45}nav span{font-size:13px;color:#66756e}
+main{max-width:1100px;margin:35px auto;padding:20px}.head{text-align:center;margin-bottom:28px}.head .tag{display:inline-block;background:#e1f2e8;color:#176b45;padding:7px 15px;border-radius:20px;font-size:11px;font-weight:bold;margin-bottom:12px}.head h1{font-size:32px;margin-bottom:7px}.head p{color:#66756e}
+.hero{background:#123b2d;color:#fff;padding:28px;border-radius:18px;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.hero h2{font-size:23px;margin-bottom:7px}.hero p{font-size:13px;color:#c7d8d1}.score{text-align:center;background:#fff;color:#176b45;width:105px;height:105px;border-radius:50%;padding-top:20px}.score strong{font-size:31px;display:block}.score span{font-size:9px;color:#718079}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #dce7e0;border-radius:16px;padding:22px}.card h3{font-size:16px;margin:8px 0}.icon{font-size:24px}.value{font-size:25px;font-weight:bold;color:#176b45}.muted{font-size:11px;color:#718079}.bar{height:7px;background:#e7eee9;border-radius:10px;margin:12px 0}.bar i{display:block;height:100%;background:#176b45;border-radius:10px}
+.wide{grid-column:span 2}.finance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.finance div{background:#f0f7f3;padding:13px;border-radius:9px}.finance strong{display:block;color:#176b45;font-size:16px}.finance span{font-size:9px;color:#74877f}
+.advice{background:#edf6f1}.advice h2{font-size:19px;color:#176b45;margin-bottom:10px}.advice p{font-size:12px;line-height:1.7;color:#52685e}
+.list{margin-top:12px}.list div{font-size:12px;padding:8px 0;color:#52685e}.list div:before{content:"✓ ";color:#176b45;font-weight:bold}
+.actions{text-align:center;margin-top:25px}.btn{display:inline-block;background:#176b45;color:#fff;padding:13px 25px;border-radius:9px;font-weight:bold;margin:4px}.print{background:#fff;color:#176b45;border:1px solid #176b45}
+.disclaimer{font-size:10px;color:#74827b;text-align:center;margin:25px auto;max-width:800px}
+@media(max-width:700px){.hero{flex-direction:column;text-align:center;gap:20px}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.finance{grid-template-columns:1fr}.head h1{font-size:27px}}
+</style>
+</head>
+
+<body>
+<nav><div class="logo"><img
+            src="C:\Users\Dell\prototype\gramodyog-logo.png.png"
+            alt="Gramodyog Logo" height="50"
+        > Gramodyog</div><span><a href="risk.html" class="back">← Back </a>
+           </nav>
+
+<main>
+<div class="head">
+<div class="tag">✓ ANALYSIS COMPLETE</div>
+<h1>Your Business Feasibility Report</h1>
+<p>Here is your personalized business decision summary.</p>
+</div>
+
+<div class="hero">
+<div>
+<h2>Business Opportunity: Strong Potential</h2>
+<p>Your selected business shows a favorable combination of market demand, competition and financial feasibility.</p>
+</div>
+<div class="score"><strong>78</strong><span>OVERALL SCORE</span></div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Market Opportunity</h3>
+<div class="value">78/100</div>
+<div class="bar"><i style="width:78%"></i></div>
+<p class="muted">Strong local market potential.</p>
+</div>
+
+<div class="card">
+<div class="icon">💰</div>
+<h3>Financial Fit</h3>
+<div class="value">74/100</div>
+<div class="bar"><i style="width:74%"></i></div>
+<p class="muted">Project appears financially manageable.</p>
+</div>
+
+<div class="card">
+<div class="icon">⚠️</div>
+<h3>Risk Level</h3>
+<div class="value">Low–Moderate</div>
+<div class="bar"><i style="width:32%"></i></div>
+<p class="muted">Risks can be managed with planning.</p>
+</div>
+
+<div class="card wide">
+<h3>💳 Estimated Financing Structure</h3>
+<p class="muted">Illustrative estimate based on the entered project details.</p>
+<div class="finance">
+<div><strong>₹10,00,000</strong><span>Estimated Project Cost</span></div>
+<div><strong>₹1,00,000</strong><span>Margin Contribution</span></div>
+<div><strong>₹9,00,000</strong><span>Estimated Loan</span></div>
+</div>
+</div>
+
+<div class="card advice">
+<h2>🤖 AI Advisor Recommendation</h2>
+<p>The business has promising potential in the selected location. Before investing, validate customer demand, compare local competitors and suppliers, and ensure that expected monthly cash flow can support operating expenses and loan repayment.</p>
+</div>
+
+<div class="card">
+<h3>🎯 Recommended Action Plan</h3>
+<div class="list">
+<div>Validate demand with local customers.</div>
+<div>Check nearby competitor pricing.</div>
+<div>Compare supplier costs.</div>
+<div>Prepare working-capital reserve.</div>
+<div>Review loan repayment capacity.</div>
+</div>
+</div>
+
+</div>
+
+<div class="actions">
+<a href="business.html" class="btn">Start New Analysis</a>
+
+
+<a href="#" class="btn print" onclick="window.print()">Print Report</a>
+</div>
+
+<p class="disclaimer">Gramodyog provides advisory estimates for decision support. Actual eligibility, loan sanction, interest rate, repayment terms and scheme approval are subject to applicable government guidelines and the concerned financing/channelizing agency.</p>
+</main>
+</body>
+</html>
+```
